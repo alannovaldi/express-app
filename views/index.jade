@@ -1,0 +1,25 @@
+html
+    head
+        title!=title
+
+        body
+            h1=message
+
+        div
+            table.table.table-hover
+                thead
+                    th='ID'
+                    th='Full Name'
+                    th='Email'
+                    th='Item'
+                    th='Quantity'
+                    th='Total Price'
+                tbody
+                    each purchase, index in purchases
+                        tr
+                            td=index + 1
+                            td=purchase.full_name
+                            td=purchase.email
+                            td=purchase.item
+                            td=purchase.quantity
+                            td=purchase.price
