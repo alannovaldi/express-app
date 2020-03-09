@@ -15,7 +15,17 @@ Purchase.getAllPurchase = function (result) {
                 console.log("error: ", err);
                 result(null, err);
             } else {
-                console.log('tasks : ', res);  
+                result(null, res);
+            }
+        });   
+};
+
+Purchase.getAllItems = function (result) {
+    sql.query("SELECT DISTINCT item from purchases", function (err, res) {
+            if(err) {
+                console.log("error: ", err);
+                result(null, err);
+            } else {
                 result(null, res);
             }
         });   

@@ -13,23 +13,19 @@ html
                 div.col-sm-3
                     h3=co_title
                 div.col-sm-3
-                    a(href="http://localhost:3000/reverse").btn.btn-primary Reverse
+                    a(href="http://localhost:3000/").btn.btn-primary Reverse
             br
-        
             table.table.table-hover
                 thead
-                    th='ID'
                     th='Full Name'
                     th='Email'
-                    th='Item'
-                    th='Quantity'
-                    th='Total Price'
+                    each item in items
+                        th=item.item
+                    
                 tbody
-                    each purchase, index in purchases
+                    each purchase, index in reversed
                         tr
-                            td=index + 1
-                            td=purchase.full_name
+                            td=index
                             td=purchase.email
-                            td=purchase.item
-                            td=purchase.quantity
-                            td=purchase.price
+                            each row in purchase.items
+                                td=row
